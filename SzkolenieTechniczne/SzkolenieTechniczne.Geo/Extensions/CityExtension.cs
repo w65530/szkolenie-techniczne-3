@@ -4,15 +4,15 @@ using LocalizedString = SzkolenieTechniczne.Common.CrossCutting.Dtos.LocalizedSt
 
 namespace SzkolenieTechniczne.Geo.Extensions;
 
-public static class CountryExtension
+public static class CityExtension
 {
-    public static CountryDto ToDto(this Country entity)
+    public static CityDto ToDto(this City entity)
     {  
-        return new CountryDto
+        return new CityDto
         {
             Id = entity.Id,
             Name = new LocalizedString(entity.Translations.Select(t => new KeyValuePair<string, string>(t.LanguageCode, t.Name))),
-            Alpha3Code = entity.Alpha3Code
+            CountryId = entity.CountryId
         };
     }
 }

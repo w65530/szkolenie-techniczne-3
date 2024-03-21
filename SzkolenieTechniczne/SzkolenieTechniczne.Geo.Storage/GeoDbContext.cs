@@ -6,7 +6,7 @@ namespace SzkolenieTechniczne.Geo.Storage;
 
 public class GeoDbContext : DbContext
 {
-    private IConfiguration Configuration { get; }
+    private IConfiguration _configuration { get; }
     
     public DbSet<Country> Countries { get; set; }
     public DbSet<CountryTranslation> CountryTranslations { get; set; }
