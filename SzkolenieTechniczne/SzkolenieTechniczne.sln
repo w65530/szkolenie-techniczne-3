@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzkolenieTechniczne.Geo", "SzkolenieTechniczne.Geo\SzkolenieTechniczne.Geo.csproj", "{E007F937-BE47-4A96-BB77-C39C2604737E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Geo", "Geo", "{63B1A9B8-9406-442D-819A-CD13FC73BF97}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzkolenieTechniczne.Geo.CrossCutting", "SzkolenieTechniczne.Geo.CrossCutting\SzkolenieTechniczne.Geo.CrossCutting.csproj", "{2266F0D3-EC20-429B-A399-224B65C757B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzkolenieTechniczne.Geo.Storage", "SzkolenieTechniczne.Geo.Storage\SzkolenieTechniczne.Geo.Storage.csproj", "{B0BA4117-0DBD-42F5-8EF4-B82273C081A6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{31839042-3509-4736-A1A6-BDC47A5E4213}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzkolenieTechniczne.Common.Storage", "SzkolenieTechniczne.Common.Storage\SzkolenieTechniczne.Common.Storage.csproj", "{D1D5293F-F189-4ABF-8CBE-C2A99BABC020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SzkolenieTechniczne.Common.CrossCutting", "SzkolenieTechniczne.Common.CrossCutting\SzkolenieTechniczne.Common.CrossCutting.csproj", "{D38DE530-AF41-4377-993D-24F6A96A9A23}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E007F937-BE47-4A96-BB77-C39C2604737E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E007F937-BE47-4A96-BB77-C39C2604737E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E007F937-BE47-4A96-BB77-C39C2604737E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E007F937-BE47-4A96-BB77-C39C2604737E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2266F0D3-EC20-429B-A399-224B65C757B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2266F0D3-EC20-429B-A399-224B65C757B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2266F0D3-EC20-429B-A399-224B65C757B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2266F0D3-EC20-429B-A399-224B65C757B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0BA4117-0DBD-42F5-8EF4-B82273C081A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0BA4117-0DBD-42F5-8EF4-B82273C081A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0BA4117-0DBD-42F5-8EF4-B82273C081A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0BA4117-0DBD-42F5-8EF4-B82273C081A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1D5293F-F189-4ABF-8CBE-C2A99BABC020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1D5293F-F189-4ABF-8CBE-C2A99BABC020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1D5293F-F189-4ABF-8CBE-C2A99BABC020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1D5293F-F189-4ABF-8CBE-C2A99BABC020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D38DE530-AF41-4377-993D-24F6A96A9A23}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D38DE530-AF41-4377-993D-24F6A96A9A23}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D38DE530-AF41-4377-993D-24F6A96A9A23}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D38DE530-AF41-4377-993D-24F6A96A9A23}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E007F937-BE47-4A96-BB77-C39C2604737E} = {63B1A9B8-9406-442D-819A-CD13FC73BF97}
+		{2266F0D3-EC20-429B-A399-224B65C757B0} = {63B1A9B8-9406-442D-819A-CD13FC73BF97}
+		{B0BA4117-0DBD-42F5-8EF4-B82273C081A6} = {63B1A9B8-9406-442D-819A-CD13FC73BF97}
+		{D1D5293F-F189-4ABF-8CBE-C2A99BABC020} = {31839042-3509-4736-A1A6-BDC47A5E4213}
+		{D38DE530-AF41-4377-993D-24F6A96A9A23} = {31839042-3509-4736-A1A6-BDC47A5E4213}
+	EndGlobalSection
+EndGlobal

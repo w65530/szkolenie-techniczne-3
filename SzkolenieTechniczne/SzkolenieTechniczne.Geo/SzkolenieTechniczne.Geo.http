@@ -1,0 +1,6 @@
+@SzkolenieTechniczne.Geo_HostAddress = http://localhost:5051
+
+GET {{SzkolenieTechniczne.Geo_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
