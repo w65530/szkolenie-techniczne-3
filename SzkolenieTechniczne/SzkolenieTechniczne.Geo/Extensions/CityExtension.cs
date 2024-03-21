@@ -1,6 +1,6 @@
+using SzkolenieTechniczne.Common.CrossCutting.Dtos;
 using SzkolenieTechniczne.Geo.CrossCutting.Dtos;
 using SzkolenieTechniczne.Geo.Storage.Entities;
-using LocalizedString = SzkolenieTechniczne.Common.CrossCutting.Dtos.LocalizedString;
 
 namespace SzkolenieTechniczne.Geo.Extensions;
 
