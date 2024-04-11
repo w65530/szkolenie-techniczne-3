@@ -20,7 +20,8 @@ public class GeoDbContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder options)
     {
-        options.UseSqlServer(@"server = 10.200.2.28; Database = geo-dev-w65530; User Id = stud; ",
+        options.UseSqlServer(
+            @"server = 127.0.0.1; Database = geo-dev; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
             x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Geo"));
     }
 
