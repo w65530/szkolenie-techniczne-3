@@ -21,7 +21,7 @@ namespace SzkolenieTechniczne.Candidate.Storage
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
             //options.UseSqlServer(@"server = 10.200.2.28; Database = geo-dev-nrAlbumu; User Id = stud; Password =wsiz; ",
-            options.UseSqlServer(@"server=(localdb)\MSSQLLocalDB;database=candidate-dev;trusted_connection=true;",
+            options.UseSqlServer(@"server = 127.0.0.1; Database = candidate-dev; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
                     //  options.UseSqlServer("",
                     x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Geo"));
         }

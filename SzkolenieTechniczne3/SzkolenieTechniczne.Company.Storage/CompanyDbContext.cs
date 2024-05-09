@@ -24,7 +24,7 @@ namespace SzkolenieTechniczne.Company.Storage
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {
-            options.UseSqlServer("Server=(localdb)\\MSSQLLocalDB;Database=szk-company;Trusted_Connection=True;",
+            options.UseSqlServer("server = 127.0.0.1; Database = company-dev; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
                 x => x.MigrationsHistoryTable("__EFMigrationsHistory", "Company"));
 
             options.LogTo(x => System.Diagnostics.Debug.WriteLine(x));

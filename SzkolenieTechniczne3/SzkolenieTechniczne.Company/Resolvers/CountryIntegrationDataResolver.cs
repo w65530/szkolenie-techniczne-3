@@ -1,5 +1,4 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using System.Net.Http;
@@ -7,6 +6,7 @@ using System.Threading.Tasks;
 using System.Linq;
 using SzkolenieTechniczne.CommonCrossCutting.Dtos;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 using SzkolenieTechniczne.Company.Storage;
 using SzkolenieTechniczne.Company.Storage.Entities;
 
