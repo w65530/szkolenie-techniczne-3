@@ -57,8 +57,8 @@ public class CompanyController : ControllerBase
     [HttpDelete("companies/{id}")]
     public async Task<IActionResult> Delete(int id)
     {
-        var company = await _companyService.Delete(id);
+        bool isCompanyDeleted = await _companyService.Delete(id);
         
-        return company == null ? NotFound() : Ok(company);
+        return isCompanyDeleted ? Ok() : NotFound();
     }
 }

@@ -14,6 +14,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+// #TODO: To trzeba dodać
+app.UseRouting();
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapControllers();
+});
+
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

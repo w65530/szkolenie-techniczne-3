@@ -11,6 +11,7 @@ public class CompanyService
 {
     private readonly CompanyDbContext _context;
 
+    // #TODO: Add ServiceBus connection string
     private static string _serviceBusConnectionString = "";
     private static string _queueName = "country-new";
     private readonly ServicesBusQueueSender _serviceBusPublisher;
@@ -90,19 +91,19 @@ public class CompanyService
         return company.ToDto();
     }
     
-    public async Task<CompanyDto> Delete(int id)
+    public async Task<bool> Delete(int id)
     {
         var company = await _context.Companies
             .FirstOrDefaultAsync(x => x.Id == id);
         
         if (company == null)
         {
-            return new CompanyDto();
+            return false;
         }
         
         _context.Companies.Remove(company);
         await _context.SaveChangesAsync();
         
-        return company.ToDto();
+        return true;
     }
 }
