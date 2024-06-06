@@ -1,6 +1,7 @@
 using kolokwium_api.Dtos;
 using kolokwium_api.Entities;
 using kolokwium_api.Extensions;
+using kolokwium_api.ServicesBusPublisher;
 using Microsoft.EntityFrameworkCore;
 
 namespace kolokwium_api.Services;
@@ -8,10 +9,15 @@ namespace kolokwium_api.Services;
 public class CompanyService
 {
     private readonly CompanyDbContext _context;
+
+    private static string _serviceBusConnectionString = "";
+    private static string _queueName = "country-new";
+    private readonly ServicesBusQueueSender _serviceBusPublisher;
     
     public CompanyService(CompanyDbContext context)
     {
         _context = context;
+        _serviceBusPublisher = new ServicesBusQueueSender(_serviceBusConnectionString, _queueName);
     }
     
     public async Task<CompanyDto> GetById(int id)
