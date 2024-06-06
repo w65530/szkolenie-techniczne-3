@@ -11,7 +11,7 @@ using kolokwium_api;
 namespace kolokwium_api.Migrations
 {
     [DbContext(typeof(CompanyDbContext))]
-    [Migration("20240606181636_Initial")]
+    [Migration("20240606195003_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
