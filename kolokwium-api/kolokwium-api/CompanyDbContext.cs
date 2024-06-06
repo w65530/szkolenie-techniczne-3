@@ -1,3 +1,4 @@
+using System.Globalization;
 using kolokwium_api.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +18,8 @@ public class CompanyDbContext : DbContext
     
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        optionsBuilder.UseSqlServer(@"server = 127.0.0.1; Database = geo-dev; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
+        
+        optionsBuilder.UseSqlServer(@"server = 127.0.0.1; Database = company-kolokwium; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
             x => x.MigrationsHistoryTable("Migrations", "Company" ));
         
         optionsBuilder.LogTo(x => System.Diagnostics.Debug.WriteLine(x));

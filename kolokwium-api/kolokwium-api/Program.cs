@@ -1,8 +1,9 @@
+using System.Globalization;
 using kolokwium_api.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// #TODO To trzeba dodać
+// #TODO: To trzeba dodać
 builder.Services.AddCompanyServices();
 builder.Services.AddControllers();
 

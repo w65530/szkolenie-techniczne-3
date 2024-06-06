@@ -3,6 +3,7 @@ using kolokwium_api.Entities;
 using kolokwium_api.Extensions;
 using kolokwium_api.ServicesBusPublisher;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace kolokwium_api.Services;
 
@@ -38,7 +39,7 @@ public class CompanyService
         return companies.Select(x => x.ToDto());
     }
     
-    public async Task<CompanyDto> Add(CompanyDto companyDto)
+    public async Task<CompanyDto> Create(CompanyDto companyDto)
     {
         var company = new Company
         {
@@ -57,6 +58,9 @@ public class CompanyService
         
         await _context.Companies.AddAsync(company);
         await _context.SaveChangesAsync();
+        
+        var messageContent = JsonConvert.SerializeObject(company.ToDto());
+        await _serviceBusPublisher.SendAsync(messageContent);
         
         return company.ToDto();
     }
