@@ -1,4 +1,6 @@
 using kolokwium_api.Dtos;
+using kolokwium_api.Entities;
+using kolokwium_api.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 namespace kolokwium_api.Services;
@@ -12,22 +14,83 @@ public class CompanyService
         _context = context;
     }
     
+    public async Task<CompanyDto> GetById(int id)
+    {
+        var company = await _context.Companies
+            .Include(x => x.Address)
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        return company == null ? new CompanyDto() : company.ToDto();
+    }
+    
     public async Task<IEnumerable<CompanyDto>> Get()
     {
-        return await _context.Companies
+        var companies = await _context.Companies
             .Include(x => x.Address)
-            .Select(x => new CompanyDto
-            {
-                Id = x.Id,
-                Name = x.Name,
-                PhoneNumber = x.PhoneNumber,
-                NIP = x.NIP,
-                REGON = x.REGON,
-                City = x.Address.City,
-                Street = x.Address.Street,
-                FlatNumber = x.Address.FlatNumber,
-                HouseNumber = x.Address.HouseNumber
-            })
             .ToListAsync();
+        
+        return companies.Select(x => x.ToDto());
+    }
+    
+    public async Task<CompanyDto> Add(CompanyDto companyDto)
+    {
+        var company = new Company
+        {
+            Name = companyDto.Name,
+            PhoneNumber = companyDto.PhoneNumber,
+            NIP = companyDto.NIP,
+            REGON = companyDto.REGON,
+            Address = new CompanyAddress
+            {
+                City = companyDto.City,
+                Street = companyDto.Street,
+                FlatNumber = companyDto.FlatNumber,
+                HouseNumber = companyDto.HouseNumber
+            }
+        };
+        
+        await _context.Companies.AddAsync(company);
+        await _context.SaveChangesAsync();
+        
+        return company.ToDto();
+    }
+    
+    public async Task<CompanyDto> Update(int id, CompanyDto companyDto)
+    {
+        var company = await _context.Companies
+            .Include(x => x.Address)
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (company == null)
+        {
+            return new CompanyDto();
+        }
+
+        company.Name = companyDto.Name;
+        company.PhoneNumber = companyDto.PhoneNumber;
+        company.NIP = companyDto.NIP;
+        company.REGON = companyDto.REGON;
+        company.Address.City = companyDto.City;
+        company.Address.Street = companyDto.Street;
+        company.Address.FlatNumber = companyDto.FlatNumber ?? company.Address.FlatNumber;
+        company.Address.HouseNumber = companyDto.HouseNumber ?? company.Address.HouseNumber;
+        
+        await _context.SaveChangesAsync();
+        
+        return company.ToDto();
+    }
+    
+    public async Task Delete(int id)
+    {
+        var company = await _context.Companies
+            .FirstOrDefaultAsync(x => x.Id == id);
+        
+        if (company == null)
+        {
+            return;
+        }
+        
+        _context.Companies.Remove(company);
+        await _context.SaveChangesAsync();
     }
 }

@@ -3,9 +3,9 @@ using kolokwium_api.Entities;
 
 namespace kolokwium_api.Extensions;
 
-public class CompanyExtension
+public static class CompanyExtension
 {
-    public static CompanyDto ToDto(Company company)
+    public static CompanyDto ToDto(this Company company)
     {
         return new CompanyDto
         {
