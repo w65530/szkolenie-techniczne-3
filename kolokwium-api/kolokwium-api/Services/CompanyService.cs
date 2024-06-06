@@ -80,17 +80,19 @@ public class CompanyService
         return company.ToDto();
     }
     
-    public async Task Delete(int id)
+    public async Task<CompanyDto> Delete(int id)
     {
         var company = await _context.Companies
             .FirstOrDefaultAsync(x => x.Id == id);
         
         if (company == null)
         {
-            return;
+            return new CompanyDto();
         }
         
         _context.Companies.Remove(company);
         await _context.SaveChangesAsync();
+        
+        return company.ToDto();
     }
 }
