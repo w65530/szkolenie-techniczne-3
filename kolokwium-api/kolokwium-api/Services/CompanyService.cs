@@ -11,15 +11,14 @@ public class CompanyService
 {
     private readonly CompanyDbContext _context;
 
-    // #TODO: Add ServiceBus connection string
-    private static string _serviceBusConnectionString = "";
+    // TODO: Add ServiceBus connection string
     private static string _queueName = "country-new";
     private readonly ServicesBusQueueSender _serviceBusPublisher;
     
-    public CompanyService(CompanyDbContext context)
+    public CompanyService(CompanyDbContext context, IConfiguration configuration)
     {
         _context = context;
-        _serviceBusPublisher = new ServicesBusQueueSender(_serviceBusConnectionString, _queueName);
+        _serviceBusPublisher = new ServicesBusQueueSender(configuration.GetConnectionString("ServiceBusConnection")!, _queueName);
     }
     
     public async Task<CompanyDto> GetById(int id)

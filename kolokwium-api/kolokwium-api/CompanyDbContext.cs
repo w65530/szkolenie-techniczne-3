@@ -18,7 +18,7 @@ public class CompanyDbContext : DbContext
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         
-        optionsBuilder.UseSqlServer(@"server = 127.0.0.1; Database = company-kolokwium; user id = sa; password = asdASD123; Encrypt = false; TrustServerCertificate = true; Integrated Security = false;",
+        optionsBuilder.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"),
             x => x.MigrationsHistoryTable("Migrations", "Company" ));
         
         optionsBuilder.LogTo(x => System.Diagnostics.Debug.WriteLine(x));
