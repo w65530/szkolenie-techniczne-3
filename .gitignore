@@ -1,2 +1,2 @@
 *.pdf
-**/**/appsettings.json
+**/**/appsettings.Local.json
