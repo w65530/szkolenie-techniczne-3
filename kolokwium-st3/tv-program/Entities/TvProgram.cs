@@ -1,10 +1,10 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace przykladowy_1_cars.Entities;
+namespace tv_program.Entities;
 
-[Table("CarServices", Schema = "CarService")]
-public class CarService
+[Table("TvPrograms", Schema = "TvProgram")]
+public class TvProgram
 {
     [Key]
     public int Id { get; set; }
@@ -15,7 +15,7 @@ public class CarService
     
     [Required]
     public DateTime CreatedAt { get; set; }
-    
+
     [Required]
-    public bool isActive { get; set; }
+    public bool IsActive { get; set; }
 }
